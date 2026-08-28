@@ -1,0 +1,8 @@
+{
+  "version": "0.01",
+  "vectors": [
+    {"name": "new_chain", "source_type": 1, "ai_id": "A", "generation_id": "one"},
+    {"name": "first_edit_of_non_ai_source", "source_type": 0, "ai_id": "A", "generation_id": "one"},
+    {"name": "idempotent_last_hop", "expected_action": "IDEMPOTENT_REWRITE"}
+  ]
+}

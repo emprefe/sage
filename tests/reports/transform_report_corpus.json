@@ -1,0 +1,601 @@
+{
+  "baseline": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\encoded\\encoded_corpus.png",
+  "baseline_presence": "PRESENT",
+  "baseline_record_recovered": true,
+  "derivatives": [
+    {
+      "concealed_status": "VALID",
+      "decode_runtime_ms": 101.929,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "png_roundtrip",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\png_roundtrip.png",
+      "output_bytes": 4753,
+      "parameters": {
+        "format": "PNG"
+      },
+      "presence": "PRESENT",
+      "profile_transport_supported": true,
+      "psnr_db": null,
+      "record_equal_to_baseline": true,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 1
+      },
+      "recovery_quality": "EXACT"
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 110.892,
+      "format": "JPEG",
+      "metadata_status": "DAMAGED",
+      "name": "jpeg_q95",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\jpeg_q95.jpg",
+      "output_bytes": 29797,
+      "parameters": {
+        "format": "JPEG",
+        "quality": 95
+      },
+      "presence": "DAMAGED",
+      "profile_transport_supported": false,
+      "psnr_db": 25.4971,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 1,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": "PARTIAL"
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 95.684,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "jpeg_q95_rasterized_png",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\jpeg_q95_rasterized_png.png",
+      "output_bytes": 89758,
+      "parameters": {
+        "format": "PNG",
+        "quality": 95,
+        "source_format": "JPEG"
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": 25.4971,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 91.82,
+      "format": "JPEG",
+      "metadata_status": "DAMAGED",
+      "name": "jpeg_q85",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\jpeg_q85.jpg",
+      "output_bytes": 19201,
+      "parameters": {
+        "format": "JPEG",
+        "quality": 85
+      },
+      "presence": "DAMAGED",
+      "profile_transport_supported": false,
+      "psnr_db": 24.9918,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 1,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": "PARTIAL"
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 114.635,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "jpeg_q85_rasterized_png",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\jpeg_q85_rasterized_png.png",
+      "output_bytes": 102838,
+      "parameters": {
+        "format": "PNG",
+        "quality": 85,
+        "source_format": "JPEG"
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": 24.9918,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 93.652,
+      "format": "JPEG",
+      "metadata_status": "DAMAGED",
+      "name": "jpeg_q70",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\jpeg_q70.jpg",
+      "output_bytes": 13764,
+      "parameters": {
+        "format": "JPEG",
+        "quality": 70
+      },
+      "presence": "DAMAGED",
+      "profile_transport_supported": false,
+      "psnr_db": 24.2045,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 1,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": "PARTIAL"
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 93.082,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "jpeg_q70_rasterized_png",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\jpeg_q70_rasterized_png.png",
+      "output_bytes": 104473,
+      "parameters": {
+        "format": "PNG",
+        "quality": 70,
+        "source_format": "JPEG"
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": 24.2045,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 91.547,
+      "format": "JPEG",
+      "metadata_status": "DAMAGED",
+      "name": "jpeg_q50",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\jpeg_q50.jpg",
+      "output_bytes": 10498,
+      "parameters": {
+        "format": "JPEG",
+        "quality": 50
+      },
+      "presence": "DAMAGED",
+      "profile_transport_supported": false,
+      "psnr_db": 23.0402,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 1,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": "PARTIAL"
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 90.712,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "jpeg_q50_rasterized_png",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\jpeg_q50_rasterized_png.png",
+      "output_bytes": 106385,
+      "parameters": {
+        "format": "PNG",
+        "quality": 50,
+        "source_format": "JPEG"
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": 23.0402,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 91.51,
+      "format": "WEBP",
+      "metadata_status": "DAMAGED",
+      "name": "webp_q80",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\webp_q80.webp",
+      "output_bytes": 10580,
+      "parameters": {
+        "format": "WEBP",
+        "quality": 80
+      },
+      "presence": "DAMAGED",
+      "profile_transport_supported": false,
+      "psnr_db": 25.1419,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 1,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": "PARTIAL"
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 97.765,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "webp_q80_rasterized_png",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\webp_q80_rasterized_png.png",
+      "output_bytes": 94231,
+      "parameters": {
+        "format": "PNG",
+        "quality": 80,
+        "source_format": "WEBP"
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": 25.1419,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 24.985,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "resize_75",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\resize_75.png",
+      "output_bytes": 17387,
+      "parameters": {
+        "percent": 75
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": null,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 10.214,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "resize_50",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\resize_50.png",
+      "output_bytes": 11431,
+      "parameters": {
+        "percent": 50
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": null,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 3.405,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "resize_25",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\resize_25.png",
+      "output_bytes": 6811,
+      "parameters": {
+        "percent": 25
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": null,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 34.623,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "crop_90",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\crop_90.png",
+      "output_bytes": 3884,
+      "parameters": {
+        "retained_percent": 90
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": null,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 22.499,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "crop_75",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\crop_75.png",
+      "output_bytes": 3399,
+      "parameters": {
+        "retained_percent": 75
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": null,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 9.021,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "crop_50",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\crop_50.png",
+      "output_bytes": 2738,
+      "parameters": {
+        "retained_percent": 50
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": null,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 3.306,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "crop_25",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\crop_25.png",
+      "output_bytes": 232,
+      "parameters": {
+        "retained_percent": 25
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": null,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 101.704,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "blur",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\blur.png",
+      "output_bytes": 22427,
+      "parameters": {
+        "radius": 1.0
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": 23.0154,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 106.032,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "sharpen",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\sharpen.png",
+      "output_bytes": 15943,
+      "parameters": {
+        "percent": 150,
+        "radius": 1
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": 29.1555,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 98.196,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "brightness_110",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\brightness_110.png",
+      "output_bytes": 14900,
+      "parameters": {
+        "factor": 1.1
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": 26.0774,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 88.009,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "contrast_110",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\contrast_110.png",
+      "output_bytes": 15157,
+      "parameters": {
+        "factor": 1.1
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": 31.7951,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 43.916,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "border_10",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\border_10.png",
+      "output_bytes": 5074,
+      "parameters": {
+        "border": 10
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": null,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 103.208,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "rotate_5",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\rotate_5.png",
+      "output_bytes": 47024,
+      "parameters": {
+        "degrees": 5
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": 10.4954,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    },
+    {
+      "concealed_status": "ABSENT",
+      "decode_runtime_ms": 91.367,
+      "format": "PNG",
+      "metadata_status": "ABSENT",
+      "name": "screenshot_like_raster",
+      "output": "C:\\Users\\Emprefe\\Desktop\\sage\\tests\\fixtures\\transformed_corpus\\screenshot_like_raster.png",
+      "output_bytes": 14213,
+      "parameters": {
+        "downscale": 0.5,
+        "upscale": 2
+      },
+      "presence": "NOT_DETECTED",
+      "profile_transport_supported": true,
+      "psnr_db": 26.7384,
+      "record_equal_to_baseline": false,
+      "recovery_metrics": {
+        "damaged_evidence": 0,
+        "evidence_sources": 2,
+        "invalid_evidence": 0,
+        "valid_records": 0
+      },
+      "recovery_quality": null
+    }
+  ],
+  "tool": "sage_transform_corpus",
+  "version": "0.01"
+}

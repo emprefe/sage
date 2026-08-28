@@ -1,0 +1,9 @@
+{
+  "version": "0.01",
+  "vectors": [
+    {"name": "absent", "status": "ABSENT"},
+    {"name": "valid", "status": "VALID"},
+    {"name": "malformed", "status": "INVALID"},
+    {"name": "damaged", "status": "DAMAGED"}
+  ]
+}

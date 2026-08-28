@@ -1,0 +1,17 @@
+{
+  "algorithm": "sage_core",
+  "passed": true,
+  "vectors": [
+    {
+      "name": "single_hop",
+      "payload_utf8": "SAGE/0.01|1|A:one",
+      "round_trip": true
+    },
+    {
+      "name": "ordered_chain",
+      "payload_utf8": "SAGE/0.01|0|A:one|B:two",
+      "round_trip": true
+    }
+  ],
+  "version": "0.01"
+}

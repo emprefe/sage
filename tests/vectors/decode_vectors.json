@@ -1,0 +1,11 @@
+{
+  "version": "0.01",
+  "state_matrix": [
+    ["ABSENT", "ABSENT", "NOT_DETECTED"],
+    ["VALID", "ABSENT", "PRESENT"],
+    ["ABSENT", "VALID", "PRESENT"],
+    ["VALID", "VALID", "PRESENT_OR_CONFLICT"],
+    ["DAMAGED", "ABSENT", "DAMAGED"],
+    ["INVALID", "ABSENT", "DAMAGED"]
+  ]
+}
