@@ -6,3 +6,4 @@ _sage_review/
 dist/
 build/
 *.egg-info/
+local_test_outputs/

@@ -37,14 +37,19 @@ def _frame(payload: bytes) -> bytes:
 
 
 def _positions(width, height, copy_index):
-    # Deterministic tiled traversal. Copies occupy interleaved tile regions.
+    # Deterministic tiled traversal. Copies occupy interleaved tile regions and
+    # are stably shuffled so the frame does not form a visible scanline.
     tile_w = max(1, width // 3)
     tile_h = max(1, height // 3)
     start_x = (copy_index % 3) * tile_w
     start_y = (copy_index // 3) * tile_h
+    positions = []
     for y in range(start_y, height - BLOCK_SIZE + 1, BLOCK_SIZE):
         for x in range(start_x, width - BLOCK_SIZE + 1, BLOCK_SIZE):
-            yield x, y
+            key = (x * 73856093) ^ (y * 19349663) ^ (copy_index * 83492791)
+            positions.append((key & 0xffffffff, x, y))
+    for _, x, y in sorted(positions):
+        yield x, y
 
 
 def _embed_copy(pixels, width, height, frame, copy_index):
