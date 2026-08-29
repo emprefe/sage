@@ -24,3 +24,6 @@ Generate a transformation report from an encoded PNG:
 ```text
 python tools/transform_corpus.py tests/fixtures/encoded/encoded_lsb.png --output-dir tests/fixtures/transformed --report tests/reports/transform_report.json
 ```
+
+The repository CI runs the pytest suite, Python compilation checks, and the
+deterministic conformance vectors on Python 3.10 through 3.12.
