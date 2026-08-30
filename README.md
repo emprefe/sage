@@ -4,6 +4,11 @@ This is an experimental, local-first reference implementation of the SAGE
 provenance model. It is not a production watermark and does not authenticate
 providers or establish that an asset is genuine.
 
+The consolidated design direction is documented in
+`sage_wp_v1.07_handshake_consolidated.pdf`. It proposes a minimal,
+language-neutral participant handshake while explicitly separating that
+proposal from the current v0.01 implementation.
+
 ## Run
 
 Use Python 3.10+ with Pillow and pytest installed:
