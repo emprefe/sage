@@ -12,7 +12,7 @@ class ParticipantEntry {
   final List<String?> extData;
   ParticipantEntry(this.participantId, [List<String?>? extData]) : extData = List<String?>.unmodifiable(extData ?? [null, null, null]) { if (this.extData.length != 3) throw SageError('INVALID_EXTENSION_FIELDS', 'Exactly three extension slots are required'); }
   @override bool operator ==(Object other) => other is ParticipantEntry && participantId == other.participantId && _listEqual(extData, other.extData);
-  @override int get hashCode => Object.hash(participantId, ...extData);
+  @override int get hashCode => Object.hash(participantId, extData[0], extData[1], extData[2]);
 }
 
 class SageRecord {
