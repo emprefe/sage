@@ -8,3 +8,4 @@ build/
 *.egg-info/
 local_test_outputs/
 .codex-remote-attachments/
+tmp/
