@@ -1,6 +1,6 @@
 import pytest
 
-from sage.core import LegacyRecord, ParticipantEntry, Record, compare_records, parse_record, serialize_record, update_participant
+from sage.core import LegacyRecord, ParticipantEntry, Record, compare_records, migrate_legacy, parse_record, serialize_record, update_participant
 from sage.errors import ValidationError
 
 
@@ -43,3 +43,14 @@ def test_compare_records_uses_logical_values():
     left = Record((ParticipantEntry("A", ("one", None, None)),))
     right = parse_record(serialize_record(left))
     assert compare_records(left, right) == "EQUAL"
+
+
+def test_extensions_round_trip_utf8_and_empty_slots():
+    record = Record((ParticipantEntry("TOOL", ("cafe", "café", None)),))
+    assert parse_record(serialize_record(record)) == record
+
+
+def test_legacy_migration_maps_generation_id_to_first_extension():
+    legacy = parse_record(b"SAGE/0.01|0|AI:gen-7")
+    migrated = migrate_legacy(legacy)
+    assert migrated.chain == (ParticipantEntry("AI", ("gen-7", None, None)),)

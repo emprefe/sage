@@ -1,17 +1,18 @@
 {
   "algorithm": "sage_core",
-  "passed": true,
+  "version": "0.02",
   "vectors": [
     {
       "name": "single_participant",
-      "payload_utf8": "SAGE/0.02|A|-|-|-",
-      "round_trip": true
+      "payload_utf8": "SAGE/0.02|A|-|-|-"
     },
     {
       "name": "ordered_chain",
-      "payload_utf8": "SAGE/0.02|A|-|-|-|B|-|-|-",
-      "round_trip": true
+      "payload_utf8": "SAGE/0.02|A|-|-|-|B|-|-|-"
+    },
+    {
+      "name": "opaque_extensions",
+      "payload_utf8": "SAGE/0.02|TOOL|Y2FmZQ|Y2Fmw6k|-"
     }
-  ],
-  "version": "0.02"
+  ]
 }

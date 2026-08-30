@@ -29,6 +29,15 @@ def test_clean_png_is_not_detected_but_concealed_is_explicitly_deferred():
     assert result.presence == NOT_DETECTED
 
 
+def test_update_existing_participant_moves_it_to_the_end():
+    first, _ = encode(png_bytes(), "A", ("first", None, None))
+    second, _ = encode(first, "B", ("second", None, None))
+    third, report = encode(second, "A", ("updated", None, None))
+    assert report["action"] == "APPEND_CHAIN"
+    assert decode(third, "STRICT").record.chain[0].participant_id == "B"
+    assert decode(third, "STRICT").record.chain[-1].ext_data[0] == "updated"
+
+
 def test_invalid_mode_is_machine_readable():
     result = decode(png_bytes(), "BAD")
     assert result.status == "ERROR"
