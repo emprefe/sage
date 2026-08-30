@@ -1,0 +1,7 @@
+name: sage_reference
+description: SAGE v0.02 Core reference implementation.
+version: 0.1.0
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+executables:
+  sage: sage

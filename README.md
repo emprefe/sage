@@ -34,3 +34,10 @@ python tools/transform_corpus.py tests/fixtures/encoded/encoded_lsb.png --output
 
 The repository CI runs the pytest suite, Python compilation checks, and the
 deterministic conformance vectors on Python 3.10 through 3.12.
+
+## Reference examples
+
+The independent examples live under `examples/`. The PHP example includes a
+small browser editor and metadata adapter for PNG, JPEG, and WebP. The Dart
+example provides a reusable Core package and CLI. Both follow the shared
+vectors and do not depend on either CMS project.

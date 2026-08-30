@@ -7,6 +7,7 @@ from pathlib import Path
 
 from .decode import decode, result_dict
 from .encode import EncodeFailure, encode
+from .profiles import profile_for_format
 
 
 def main(argv=None) -> int:
@@ -29,11 +30,13 @@ def main(argv=None) -> int:
     try:
         if args.command == "encode":
             extensions = (args.ext_data_1, args.ext_data_2, args.ext_data_3)
-            output, report = encode(args.input.read_bytes(), args.participant_id, extensions)
+            profile = profile_for_format(args.input.suffix.lstrip("."))
+            output, report = encode(args.input.read_bytes(), args.participant_id, extensions, profile=profile)
             args.output.write_bytes(output)
             print(json.dumps(report, sort_keys=True))
         else:
-            result = decode(args.input.read_bytes(), args.mode)
+            profile = profile_for_format(args.input.suffix.lstrip("."))
+            result = decode(args.input.read_bytes(), args.mode, profile=profile)
             print(json.dumps(result_dict(result), sort_keys=True))
         return 0
     except EncodeFailure as exc:

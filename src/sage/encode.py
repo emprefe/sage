@@ -47,17 +47,18 @@ def encode(media: bytes, current_participant_id: str, ext_data=None, profile=Non
         validate_record(record)
         serialized = serialize_record(record)
         output = profile.encode_metadata(media, record)
-        if hasattr(profile, "encode_concealed"):
+        concealed_supported = bool(getattr(profile, "concealed_supported", hasattr(profile, "encode_concealed")))
+        if concealed_supported and hasattr(profile, "encode_concealed"):
             output = profile.encode_concealed(output, record)
         verify = profile.decode_metadata(output)
-        concealed_verify = profile.decode_concealed(output)
-        if verify.status != VALID or verify.record != record or concealed_verify.status != VALID:
+        concealed_verify = profile.decode_concealed(output) if hasattr(profile, "decode_concealed") else None
+        if verify.status != VALID or verify.record != record or (concealed_supported and concealed_verify.status != VALID):
             raise EncodeFailure("SELF_CHECK_FAILED", "metadata self-check failed")
         report = {
             "logical_record": asdict(record),
             "serialized_bytes": len(serialized),
             "metadata_written": True,
-            "concealed_written": True,
+            "concealed_written": concealed_supported,
             "profile": f"{profile.id} {profile.version}",
             "encoder_version": "0.02",
             "prior_integrity": secondary,

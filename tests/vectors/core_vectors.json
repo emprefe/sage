@@ -10,9 +10,13 @@
       "name": "ordered_chain",
       "payload_utf8": "SAGE/0.02|A|-|-|-|B|-|-|-"
     },
-    {
-      "name": "opaque_extensions",
-      "payload_utf8": "SAGE/0.02|TOOL|Y2FmZQ|Y2Fmw6k|-"
-    }
+    {"name": "opaque_extensions", "payload_utf8": "SAGE/0.02|TOOL|Y2FmZQ|Y2Fmw6k|-"},
+    {"name": "unicode_extension", "payload_utf8": "SAGE/0.02|EDITOR|w6k|-|-"}
+  ],
+  "invalid_vectors": [
+    {"name": "unsupported_version", "payload_utf8": "SAGE/0.01|1|A:gen", "error_code": "UNSUPPORTED_VERSION"},
+    {"name": "duplicate_participant", "payload_utf8": "SAGE/0.02|A|-|-|-|A|-|-|-", "error_code": "DUPLICATE_PARTICIPANT_ID"},
+    {"name": "invalid_extension", "payload_utf8": "SAGE/0.02|A|not*base64|-|-", "error_code": "INVALID_EXTENSION_DATA"},
+    {"name": "bad_field_count", "payload_utf8": "SAGE/0.02|A|-", "error_code": "INVALID_RECORD"}
   ]
 }
