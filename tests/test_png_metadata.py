@@ -2,7 +2,7 @@ import io
 
 from PIL import Image, PngImagePlugin
 
-from sage.core import Hop, Record
+from sage.core import ParticipantEntry, Record
 from sage.metadata import remove_metadata, read_metadata, write_metadata
 from sage.types import ABSENT, VALID
 
@@ -18,7 +18,7 @@ def png_bytes():
 
 def test_metadata_round_trip_and_unrelated_metadata_preservation():
     source = png_bytes()
-    record = Record(0, (Hop("A", "one"),))
+    record = Record((ParticipantEntry("A"),))
     encoded = write_metadata(source, record)
     evidence = read_metadata(encoded)
     assert evidence.status == VALID
@@ -29,5 +29,5 @@ def test_metadata_round_trip_and_unrelated_metadata_preservation():
 
 def test_metadata_removal_returns_absent():
     source = png_bytes()
-    encoded = write_metadata(source, Record(1, (Hop("A", "one"),)))
+    encoded = write_metadata(source, Record((ParticipantEntry("A"),)))
     assert read_metadata(remove_metadata(encoded)).status == ABSENT

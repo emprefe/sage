@@ -2,7 +2,7 @@ import io
 
 from PIL import Image
 
-from sage.core import Hop, Record
+from sage.core import ParticipantEntry, Record
 from sage.decode import decode
 from sage.profiles.png_exp import PngExperimentalProfile
 from sage.types import Evidence, ABSENT, DAMAGED, INVALID, VALID, PRESENT, CONFLICT
@@ -30,8 +30,8 @@ def evidence(layer, status, record=None):
 
 
 def test_conflicting_layers_are_preserved():
-    left = Record(0, (Hop("A", "one"),))
-    right = Record(1, (Hop("B", "two"),))
+    left = Record((ParticipantEntry("A"),))
+    right = Record((ParticipantEntry("B"),))
     profile = StubProfile(evidence("METADATA", VALID, left), evidence("CONCEALED", VALID, right))
     result = decode(png_bytes(), "STRICT", profile=profile)
     assert result.presence == CONFLICT

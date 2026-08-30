@@ -1,6 +1,6 @@
 # SAGE-IMG-PNG-EXP 0.01
 
-The experimental profile stores the canonical Core record in an uncompressed
+The experimental profile stores the canonical Core 0.02 participant record in an uncompressed
 PNG `iTXt` chunk using the keyword `SAGE`. It preserves unrelated PNG chunks
 where practical and reports `ABSENT`, `VALID`, `DAMAGED`, or `INVALID` layer
 evidence. The current concealed prototype repeats a framed record across three

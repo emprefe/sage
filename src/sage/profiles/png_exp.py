@@ -65,11 +65,13 @@ def _embed_copy(pixels, width, height, frame, copy_index):
         if base + (QUANTUM * 3 // 4) > 255:
             base -= QUANTUM
         target = base + (QUANTUM * 3 // 4 if bit else QUANTUM // 4)
-        delta = target - int(round(mean))
         for dy in range(BLOCK_SIZE):
             for dx in range(BLOCK_SIZE):
                 pixel = list(pixels[x + dx, y + dy])
-                pixel[0] = max(0, min(255, pixel[0] + delta))
+                # Set the complete block to the target band. A delta shift
+                # can clip at 0/255 and move the mean back across the bit
+                # threshold on high-contrast source pixels.
+                pixel[0] = target
                 pixels[x + dx, y + dy] = tuple(pixel)
     return False
 

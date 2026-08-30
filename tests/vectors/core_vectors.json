@@ -3,15 +3,15 @@
   "passed": true,
   "vectors": [
     {
-      "name": "single_hop",
-      "payload_utf8": "SAGE/0.01|1|A:one",
+      "name": "single_participant",
+      "payload_utf8": "SAGE/0.02|A|-|-|-",
       "round_trip": true
     },
     {
       "name": "ordered_chain",
-      "payload_utf8": "SAGE/0.01|0|A:one|B:two",
+      "payload_utf8": "SAGE/0.02|A|-|-|-|B|-|-|-",
       "round_trip": true
     }
   ],
-  "version": "0.01"
+  "version": "0.02"
 }

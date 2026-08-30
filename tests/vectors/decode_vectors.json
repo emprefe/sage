@@ -1,5 +1,5 @@
 {
-  "version": "0.01",
+  "version": "0.02",
   "state_matrix": [
     ["ABSENT", "ABSENT", "NOT_DETECTED"],
     ["VALID", "ABSENT", "PRESENT"],

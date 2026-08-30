@@ -108,7 +108,7 @@ def main(argv=None) -> int:
         })
     report = {
         "tool": "sage_transform_corpus",
-        "version": "0.01",
+        "version": "0.02",
         "baseline": str(args.input),
         "baseline_presence": baseline_result.presence,
         "baseline_record_recovered": baseline_record is not None,

@@ -1,8 +1,8 @@
 {
-  "version": "0.01",
+  "version": "0.02",
   "vectors": [
-    {"name": "new_chain", "source_type": 1, "ai_id": "A", "generation_id": "one"},
-    {"name": "first_edit_of_non_ai_source", "source_type": 0, "ai_id": "A", "generation_id": "one"},
-    {"name": "idempotent_last_hop", "expected_action": "IDEMPOTENT_REWRITE"}
+    {"name": "new_chain", "participant_id": "A", "ext_data": ["one", null, null]},
+    {"name": "unique_participant_reorder", "participant_id": "A", "expected_chain": ["B", "C", "A"]},
+    {"name": "idempotent_update", "expected_action": "IDEMPOTENT_REWRITE"}
   ]
 }

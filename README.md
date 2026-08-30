@@ -1,4 +1,4 @@
-# SAGE v0.01 Reference Implementation
+# SAGE Participant Handshake Reference Implementation
 
 This is an experimental, local-first reference implementation of the SAGE
 provenance model. It is not a production watermark and does not authenticate
@@ -7,7 +7,7 @@ providers or establish that an asset is genuine.
 The consolidated design direction is documented in
 `sage_wp_v1.07_handshake_consolidated.pdf`. It proposes a minimal,
 language-neutral participant handshake while explicitly separating that
-proposal from the current v0.01 implementation.
+proposal from the current v0.02 participant-handshake implementation.
 
 ## Run
 
@@ -15,7 +15,7 @@ Use Python 3.10+ with Pillow and pytest installed:
 
 ```text
 python -m pytest -q
-python -m sage.cli encode input.png output.png --ai-id PROVIDER --generation-id opaque_id --source-type 1
+python -m sage.cli encode input.png output.png --participant-id IMAGE_TOOL --ext-data-1 opaque_operation_id
 python -m sage.cli decode output.png --mode STRICT
 ```
 

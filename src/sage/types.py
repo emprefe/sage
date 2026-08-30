@@ -28,7 +28,7 @@ class Evidence:
 @dataclass
 class DecodeResult:
     algorithm: str = "sage_decode"
-    algorithm_version: str = "0.01"
+    algorithm_version: str = "0.02"
     mode: str | None = None
     status: str = "SUCCESS"
     error_code: str | None = None

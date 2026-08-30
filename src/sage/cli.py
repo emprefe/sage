@@ -15,9 +15,10 @@ def main(argv=None) -> int:
     enc = sub.add_parser("encode")
     enc.add_argument("input", type=Path)
     enc.add_argument("output", type=Path)
-    enc.add_argument("--ai-id", required=True)
-    enc.add_argument("--generation-id", required=True)
-    enc.add_argument("--source-type", type=int, choices=(0, 1))
+    enc.add_argument("--participant-id", required=True)
+    enc.add_argument("--ext-data-1")
+    enc.add_argument("--ext-data-2")
+    enc.add_argument("--ext-data-3")
     dec = sub.add_parser("decode")
     dec.add_argument("input", type=Path)
     dec.add_argument("--mode", choices=("FAST", "NORMAL", "STRICT", "FORENSIC"), default="NORMAL")
@@ -27,7 +28,8 @@ def main(argv=None) -> int:
     args = parser.parse_args(argv)
     try:
         if args.command == "encode":
-            output, report = encode(args.input.read_bytes(), args.ai_id, args.generation_id, args.source_type)
+            extensions = (args.ext_data_1, args.ext_data_2, args.ext_data_3)
+            output, report = encode(args.input.read_bytes(), args.participant_id, extensions)
             args.output.write_bytes(output)
             print(json.dumps(report, sort_keys=True))
         else:

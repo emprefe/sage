@@ -3,10 +3,10 @@ from __future__ import annotations
 from dataclasses import asdict
 from hashlib import sha256
 
-from .core import Hop, Record, append_record, serialize_record, validate_record
-from .errors import SageError, ValidationError
+from .core import LegacyRecord, ParticipantEntry, Record, migrate_legacy, serialize_record, update_participant, validate_record
+from .errors import SageError
 from .profiles.png_exp import PngExperimentalProfile
-from .types import ABSENT, CONFLICT, DAMAGED, INVALID, VALID
+from .types import DAMAGED, INVALID, VALID
 
 
 class EncodeFailure(SageError):
@@ -31,24 +31,20 @@ def _prior(meta, concealed):
     return None, []
 
 
-def encode(media: bytes, current_ai_id: str, current_generation_id: str,
-           new_asset_source_type: int | None = None, profile=None) -> tuple[bytes, dict]:
+def encode(media: bytes, current_participant_id: str, ext_data=None, profile=None) -> tuple[bytes, dict]:
     profile = profile or PngExperimentalProfile()
     try:
         meta = profile.decode_metadata(media)
         concealed = profile.decode_concealed(media)
         prior, secondary = _prior(meta, concealed)
         if prior is None:
-            if new_asset_source_type not in (0, 1):
-                raise EncodeFailure("INVALID_SOURCE_TYPE", "source type is required for a new chain")
-            record = Record(
-                new_asset_source_type,
-                (Hop(current_ai_id, current_generation_id),),
-            )
+            record = Record((ParticipantEntry(current_participant_id, _normalize_extensions(ext_data)),))
             validate_record(record)
             action = "CREATE_NEW_CHAIN"
         else:
-            record = append_record(prior, current_ai_id, current_generation_id)
+            if isinstance(prior, LegacyRecord):
+                prior = migrate_legacy(prior)
+            record = update_participant(prior, current_participant_id, _normalize_extensions(ext_data))
             action = "IDEMPOTENT_REWRITE" if record == prior else "APPEND_CHAIN"
         validate_record(record)
         serialized = serialize_record(record)
@@ -65,7 +61,7 @@ def encode(media: bytes, current_ai_id: str, current_generation_id: str,
             "metadata_written": True,
             "concealed_written": True,
             "profile": f"{profile.id} {profile.version}",
-            "encoder_version": "0.01",
+            "encoder_version": "0.02",
             "prior_integrity": secondary,
             "action": action,
             "self_check": "PASS",
@@ -75,4 +71,16 @@ def encode(media: bytes, current_ai_id: str, current_generation_id: str,
     except SageError:
         raise
     except Exception as exc:
+        if "capacity exceeded" in str(exc).lower():
+            raise EncodeFailure("CAPACITY_EXCEEDED", str(exc)) from exc
         raise EncodeFailure("PROFILE_FAILURE", str(exc)) from exc
+
+
+def _normalize_extensions(value):
+    if value is None:
+        return (None, None, None)
+    if isinstance(value, str):
+        return (value, None, None)
+    if isinstance(value, (tuple, list)) and len(value) == 3:
+        return tuple(value)
+    raise EncodeFailure("INVALID_EXTENSION_FIELDS", "ext_data must contain exactly three values")

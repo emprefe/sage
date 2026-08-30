@@ -1,35 +1,45 @@
 import pytest
 
-from sage.core import Hop, Record, append_record, compare_records, parse_record, serialize_record
+from sage.core import LegacyRecord, ParticipantEntry, Record, compare_records, parse_record, serialize_record, update_participant
 from sage.errors import ValidationError
 
 
 def test_round_trip_is_canonical():
-    record = Record(1, (Hop("OPENAI", "gen_a"), Hop("EDITOR_2", "g-2")))
+    record = Record((ParticipantEntry("CAMERA", ("capture-1", None, "owner")), ParticipantEntry("EDITOR_2")))
     payload = serialize_record(record)
-    assert payload == b"SAGE/0.01|1|OPENAI:gen_a|EDITOR_2:g-2"
+    assert payload == b"SAGE/0.02|CAMERA|Y2FwdHVyZS0x|-|b3duZXI|EDITOR_2|-|-|-"
     assert parse_record(payload) == record
 
 
-def test_append_preserves_order_and_source_type():
-    record = Record(0, (Hop("A", "one"),))
-    result = append_record(record, "B", "two")
-    assert result.source_type == 0
-    assert result.chain == (Hop("A", "one"), Hop("B", "two"))
+def test_update_moves_existing_participant_to_end_and_replaces_data():
+    record = Record((ParticipantEntry("A"), ParticipantEntry("B"), ParticipantEntry("C")))
+    result = update_participant(record, "A", ("new", None, None))
+    assert result.chain == (ParticipantEntry("B"), ParticipantEntry("C"), ParticipantEntry("A", ("new", None, None)))
 
 
-def test_duplicate_last_hop_is_idempotent():
-    record = Record(0, (Hop("A", "one"),))
-    assert append_record(record, "A", "one") == record
+def test_update_new_participant_appends():
+    record = Record((ParticipantEntry("A"),))
+    assert update_participant(record, "B").chain == (ParticipantEntry("A"), ParticipantEntry("B"))
 
 
-@pytest.mark.parametrize("payload", [b"SAGE/0.01|2|A:x", b"SAGE/0.01|0|", b"SAGE/0.01|0|A:x:y"])
-def test_invalid_records_rejected(payload):
+def test_duplicate_participants_rejected():
     with pytest.raises(ValidationError):
-        parse_record(payload)
+        parse_record(b"SAGE/0.02|A|-|-|-|A|-|-|-")
+
+
+def test_legacy_records_remain_explicitly_parseable():
+    record = parse_record(b"SAGE/0.01|1|A:one")
+    assert isinstance(record, LegacyRecord)
+    assert serialize_record(record) == b"SAGE/0.01|1|A:one"
+
+
+def test_invalid_records_rejected():
+    for payload in (b"SAGE/0.02|A|-|-", b"SAGE/0.02|A|%%%|-|-", b"SAGE/0.02||-|-|-"):
+        with pytest.raises(ValidationError):
+            parse_record(payload)
 
 
 def test_compare_records_uses_logical_values():
-    left = Record(1, (Hop("A", "one"),))
+    left = Record((ParticipantEntry("A", ("one", None, None)),))
     right = parse_record(serialize_record(left))
     assert compare_records(left, right) == "EQUAL"
