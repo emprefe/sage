@@ -1,6 +1,6 @@
 import pytest
 
-from sage.core import LegacyRecord, ParticipantEntry, Record, compare_records, migrate_legacy, parse_record, serialize_record, update_participant
+from sage.core import ParticipantEntry, Record, compare_records, parse_record, serialize_record, update_participant
 from sage.errors import ValidationError
 
 
@@ -27,10 +27,9 @@ def test_duplicate_participants_rejected():
         parse_record(b"SAGE/0.02|A|-|-|-|A|-|-|-")
 
 
-def test_legacy_records_remain_explicitly_parseable():
-    record = parse_record(b"SAGE/0.01|1|A:one")
-    assert isinstance(record, LegacyRecord)
-    assert serialize_record(record) == b"SAGE/0.01|1|A:one"
+def test_legacy_records_are_rejected_explicitly():
+    with pytest.raises(ValidationError, match="Only SAGE/0.02 is supported"):
+        parse_record(b"SAGE/0.01|1|A:one")
 
 
 def test_invalid_records_rejected():
@@ -48,9 +47,3 @@ def test_compare_records_uses_logical_values():
 def test_extensions_round_trip_utf8_and_empty_slots():
     record = Record((ParticipantEntry("TOOL", ("cafe", "café", None)),))
     assert parse_record(serialize_record(record)) == record
-
-
-def test_legacy_migration_maps_generation_id_to_first_extension():
-    legacy = parse_record(b"SAGE/0.01|0|AI:gen-7")
-    migrated = migrate_legacy(legacy)
-    assert migrated.chain == (ParticipantEntry("AI", ("gen-7", None, None)),)

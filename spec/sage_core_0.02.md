@@ -1,8 +1,8 @@
 # SAGE Core 0.02 - Participant Handshake
 
-This draft replaces the AI-specific v0.01 record model with a small,
-language-neutral participant handshake. The v0.01 Core remains a legacy format
-and is parsed explicitly as `SAGE/0.01`.
+This draft defines a small, language-neutral participant handshake. The active
+runtime supports this format only; earlier experimental formats remain in the
+repository as historical documents.
 
 ## Canonical form
 

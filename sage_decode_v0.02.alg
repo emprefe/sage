@@ -6,8 +6,7 @@ Purpose
 Procedure
   1. Apply the caller's offline/default options.
   2. Decode supported metadata and concealed layers independently.
-  3. Parse v0.02 participant records and explicitly recognize v0.01 legacy
-     records where the implementation supports backward parsing.
+  3. Parse v0.02 participant records.
   4. Validate identifiers, extension framing, unique participant IDs, and UTF-8.
   5. Compare valid logical records, never raw serialized strings.
   6. Return PRESENT when at least one valid record survives.

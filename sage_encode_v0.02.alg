@@ -13,13 +13,11 @@ Procedure
   2. Read all supported SAGE evidence without network access.
   3. If valid records conflict, fail with PRIOR_CONFLICT.
   4. If no valid record exists, create a chain containing the current participant.
-  5. If a valid v0.01 record is found, preserve it as legacy evidence or migrate
-     it only under an explicit implementation-defined compatibility rule.
-  6. For a v0.02 record, remove the current PARTICIPANT_ID if present, then
+  5. For a v0.02 record, remove the current PARTICIPANT_ID if present, then
      append the current PARTICIPANT_ENTRY.
-  7. Serialize the canonical record as UTF-8.
-  8. Write supported metadata and concealed profile layers only after validation.
-  9. Decode the output locally and require a successful self-check.
+  6. Serialize the canonical record as UTF-8.
+  7. Write supported metadata and concealed profile layers only after validation.
+  8. Decode the output locally and require a successful self-check.
 
 Rules
   A participant appears at most once in the active chain. Chain order expresses

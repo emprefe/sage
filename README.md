@@ -7,7 +7,9 @@ providers or establish that an asset is genuine.
 The consolidated design direction is documented in
 `sage_wp_v1.07_handshake_consolidated.pdf`. It proposes a minimal,
 language-neutral participant handshake while explicitly separating that
-proposal from the current v0.02 participant-handshake implementation.
+proposal from the current v0.02 participant-handshake implementation. Earlier
+v0.01 material remains as historical documentation only; the active runtime is
+v0.02-only.
 
 ## Run
 

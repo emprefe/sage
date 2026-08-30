@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import asdict
 from hashlib import sha256
 
-from .core import LegacyRecord, ParticipantEntry, Record, migrate_legacy, serialize_record, update_participant, validate_record
+from .core import ParticipantEntry, Record, serialize_record, update_participant, validate_record
 from .errors import SageError
 from .profiles.png_exp import PngExperimentalProfile
 from .types import DAMAGED, INVALID, VALID
@@ -42,8 +42,6 @@ def encode(media: bytes, current_participant_id: str, ext_data=None, profile=Non
             validate_record(record)
             action = "CREATE_NEW_CHAIN"
         else:
-            if isinstance(prior, LegacyRecord):
-                prior = migrate_legacy(prior)
             record = update_participant(prior, current_participant_id, _normalize_extensions(ext_data))
             action = "IDEMPOTENT_REWRITE" if record == prior else "APPEND_CHAIN"
         validate_record(record)
